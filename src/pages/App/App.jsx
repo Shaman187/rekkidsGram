@@ -4,7 +4,7 @@ import './App.css';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
-
+import Feed from '../Feed/Feed';
 
 function App() {
 
@@ -23,21 +23,6 @@ function App() {
 
   return (
     <Router>
-    <div className="App">
-      <ul>
-        <li>
-          <Link to="/" style={{fontWeight: "bold", color: "purple"}}>Home</Link>
-        </li>
-        <li>
-          <Link to="/login" style={{fontWeight: "bold", color: "purple"}}>Login</Link>
-        </li>
-        <li>
-          <Link to="/signup" style={{fontWeight: "bold", color: "purple"}}>Signup</Link>
-        </li>
-      </ul>
-
-      <hr/>
-
       <Switch>
           <Route exact path="/login">
              <LoginPage handleSignUpOrLogin={handleSignUpOrLogin}/>
@@ -46,19 +31,18 @@ function App() {
              <SignupPage handleSignUpOrLogin={handleSignUpOrLogin}/>
           </Route>
           {userService.getUser() ? 
-            <> 
+             
              <Switch>
-                <Route exact path="/">
-                    <h1>rekkidsGram Home Page</h1>
+             <Route exact path="/">
+                    <Feed user={user} handleLogout={handleLogout}/>
                 </Route>
             </Switch>
-            </>
+            
             :
             <Redirect to='/login'/>
           }
   
       </Switch>
-    </div>
   </Router>
   );
 }

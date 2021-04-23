@@ -66,6 +66,7 @@ export default function LoginPage(props){
                     required
                   />
                 <Button
+                  inverted
                   color='purple'
                   fluid size='large'
                   type="submit"
@@ -77,7 +78,7 @@ export default function LoginPage(props){
               </Segment>
             </Form>
             <Message>
-              New to us? <Link to='/signup' style={{color: "green"}}>Sign Up</Link>
+              New to us? <Link to='/signup' style={{color: "purple"}}>Sign Up</Link>
             </Message>
             {error ? <ErrorMessage error={error} /> : null}
             </Grid.Column>

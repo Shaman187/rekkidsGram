@@ -121,7 +121,8 @@ export default function SignUpPage(props){
                         />      
                     </Form.Field>
                     <Button
-                    color='purple'
+                    
+                      color='purple'
                       type="submit"
                       className="btn"
                       disabled={invalidForm}
