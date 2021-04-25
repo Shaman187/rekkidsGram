@@ -1,4 +1,5 @@
 import React from 'react';
+import './Header.css';
 import {Link} from 'react-router-dom';
 import { Header, Segment, Image, Icon } from 'semantic-ui-react';
 
@@ -9,7 +10,7 @@ export default function PageHeader({user, handleLogout}){
             <Header floated='right'>
                 <Link to="/"><Image src="/favicon.ico"></Image></Link>
             </Header>
-            <Header as='h1' floated='right'>
+            <Header floated='right'>
                 <Link style={{color: "green"}} to='' onClick={handleLogout}>Logout</Link>
             </Header>
             <Header as='h2' floated='left'>

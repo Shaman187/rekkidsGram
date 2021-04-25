@@ -47,7 +47,7 @@ export default function LoginPage(props){
             <Image src='/favicon.ico' /> Log-in to your account
             </Header>
             <Form  autoComplete="off"  onSubmit={handleSubmit}>
-               <Segment stacked>
+               <Segment stacked inverted>
                   <Form.Input
                     type="email"
                    
@@ -78,7 +78,7 @@ export default function LoginPage(props){
               </Segment>
             </Form>
             <Message>
-              New to us? <Link to='/signup' style={{color: "purple"}}>Sign Up</Link>
+              New to us? <Link to='/signup' style={{color: "green"}}>Sign Up</Link>
             </Message>
             {error ? <ErrorMessage error={error} /> : null}
             </Grid.Column>

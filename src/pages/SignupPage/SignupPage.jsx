@@ -121,7 +121,7 @@ export default function SignUpPage(props){
                         />      
                     </Form.Field>
                     <Button
-                    
+                      inverted
                       color='purple'
                       type="submit"
                       className="btn"

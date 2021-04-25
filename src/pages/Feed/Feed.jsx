@@ -66,7 +66,7 @@ export default function Feed({user, handleLogout}){
 
 
     return (
-      <Grid centered >
+      <Grid centered>
         <Grid.Row>
           <Grid.Column>
             <PageHeader user={user} handleLogout={handleLogout}/>
