@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './SignupPage.css';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import { Button, Form, Grid, Header, Image, Segment } from 'semantic-ui-react'
 import userService from '../../utils/userService';
@@ -6,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 
 
 export default function SignUpPage(props){
-  const [invalidForm, setValidForm] = useState(false)
+  const [invalidForm ] = useState(false)
   const [error, setError ] = useState('')
   const [selectedFile, setSelectedFile] = useState('')
   const [state, setState]  = useState({
@@ -78,9 +79,10 @@ export default function SignUpPage(props){
               <Header as='h1' color='purple' textAlign='center'>
                 <Image src='/favicon.ico' /> Sign Up    
               </Header>            
-                <Form autoComplete="off"  onSubmit={handleSubmit}>
-                <Segment stacked>               
-                    <Form.Input                    
+                <Form autoComplete="off"  onSubmit={handleSubmit} inverted>
+                <Segment stacked inverted>               
+                    <Form.Input      
+                    className="input-field"              
                       name="username"
                       placeholder="username"
                       value={state.username}
@@ -111,9 +113,10 @@ export default function SignUpPage(props){
                       onChange={handleChange}
                       required
                     />
-                    <Form.TextArea label='Bio' placeholder='Tell us more about your favourite rekkid...' name="bio" onChange={handleChange}/>
+                    <Form.TextArea label='Bio' placeholder='Tell us more about your favourite rekkid...' name="Bio" color='purple' onChange={handleChange}/>
                     <Form.Field> 
                         <Form.Input
+                          label="Profile Image"
                           type="file"
                           name="photo"
                           placeholder="upload image"

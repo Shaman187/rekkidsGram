@@ -3,10 +3,10 @@ import './LoginPage.css';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
 import userService from '../../utils/userService';
 import { useHistory, Link } from 'react-router-dom';
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Image, Segment } from 'semantic-ui-react'
 
 export default function LoginPage(props){
-    const [invalidForm, setValidForm] = useState(false);
+    const [invalidForm] = useState(false);
     const [error, setError ]          = useState('')
     const [state, setState]       = useState({
         email: '',
@@ -50,7 +50,6 @@ export default function LoginPage(props){
                <Segment stacked inverted>
                   <Form.Input
                     type="email"
-                   
                     name="email"
                     placeholder="email"
                     value={ state.email}
@@ -77,9 +76,9 @@ export default function LoginPage(props){
                 </Button>
               </Segment>
             </Form>
-            <Message>
+            <Segment inverted>
               New to us? <Link to='/signup' style={{color: "green"}}>Sign Up</Link>
-            </Message>
+            </Segment>
             {error ? <ErrorMessage error={error} /> : null}
             </Grid.Column>
           </Grid>

@@ -1,67 +1,67 @@
 import React, { useState, useEffect } from 'react';
 import PageHeader from '../../components/Header/Header';
-// import AddPostForm from '../../components/AddPostForm/AddPostForm';
-// import PostFeed from '../../components/PostFeed/PostFeed';
-// import * as postsApi from '../../utils/post-api';
-// import * as likesApi from '../../utils/likesService';
+import AddPostForm from '../../components/AddPostForm/AddPostForm';
+import PostFeed from '../../components/PostFeed/PostFeed';
+import * as postsApi from '../../utils/post-api';
+import * as likesApi from '../../utils/likesService';
 
 import {  Grid } from 'semantic-ui-react';
 
 export default function Feed({user, handleLogout}){
 
-    // const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState([]);
 
     // Whereever your state is you'll probably 
     // have an api function defined in the same component that will end updating the state
 
-    // async function addLike(postId){
-    //   try {
-    //     const data = await likesApi.create(postId)
-    //     console.log(data, ' response from addLike')
-    //     getPosts() // get the updated posts
-    //   } catch(err){
-    //     console.log(err)
-    //   }
-    // }
+    async function addLike(postId){
+      try {
+        const data = await likesApi.create(postId)
+        console.log(data, ' response from addLike')
+        getPosts() // get the updated posts
+      } catch(err){
+        console.log(err)
+      }
+    }
 
-    // async function removeLike(likeId){
-    //   try{  
-    //     const data = await likesApi.removeLike(likeId);
-    //     console.log(data, ' response from removeLike')
-    //     getPosts()
-    //   } catch(err){
-    //     console.log(err)
-    //   }
-    // }
+    async function removeLike(likeId){
+      try{  
+        const data = await likesApi.removeLike(likeId);
+        console.log(data, ' response from removeLike')
+        getPosts()
+      } catch(err){
+        console.log(err)
+      }
+    }
 
 
-    // async function handleAddPost(post){
-    //     console.log('hanlde add Post')
-    //     try {
+    async function handleAddPost(post){
+        console.log('hanlde add Post')
+        try {
             
-    //         const data = await postsApi.create(post)
-    //         console.log(data, ' the response from the create route')
+            const data = await postsApi.create(post)
+            console.log(data, ' the response from the create route')
 
-    //         setPosts(posts => [data.post, ...posts])
+            setPosts(posts => [data.post, ...posts])
 
-    //     } catch(err){
-    //         console.log(err)
-    //     }
-    // }
+        } catch(err){
+            console.log(err)
+        }
+    }
 
-    // async function getPosts(){
+    async function getPosts(){
     
-    //     try {
-    //       const data = await postsApi.getAll();
-    //       setPosts([...data.posts])
-    //     } catch(err){
-    //       console.log(err, ' this is the error')
-    //     }
-    //   }
+        try {
+          const data = await postsApi.getAll();
+          setPosts([...data.posts])
+        } catch(err){
+          console.log(err, ' this is the error')
+        }
+      }
 
-    //   useEffect(() => {
-    //     getPosts()
-    //   }, [])
+      useEffect(() => {
+        getPosts()
+      }, [])
 
 
 
@@ -72,14 +72,15 @@ export default function Feed({user, handleLogout}){
             <PageHeader user={user} handleLogout={handleLogout}/>
           </Grid.Column>
         </Grid.Row>
-            <h1>Hi!</h1>
-        {/* <Grid.Row>
+        <Grid.Row>
           <Grid.Column style={{ maxWidth: 450 }}>
             <AddPostForm handleAddPost={handleAddPost}/>
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
-          <Grid.Column style={{maxWidth: 450}}>
+          <Grid.Column 
+          // style={{maxWidth: 450}}
+          >
             <PostFeed 
               user={user}
               posts={posts}  
@@ -89,7 +90,7 @@ export default function Feed({user, handleLogout}){
               removeLike={removeLike}
               />
           </Grid.Column>
-        </Grid.Row> */}
+        </Grid.Row>
     </Grid>
     )
 }
