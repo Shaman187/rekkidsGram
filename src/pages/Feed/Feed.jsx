@@ -78,9 +78,7 @@ export default function Feed({user, handleLogout}){
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
-          <Grid.Column 
-          // style={{maxWidth: 450}}
-          >
+          <Grid.Column style={{maxWidth: 450}}>
             <PostFeed 
               user={user}
               posts={posts}  

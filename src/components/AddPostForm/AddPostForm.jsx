@@ -45,7 +45,7 @@ export default function AddPostForm(props){
 
   return (
     
-    <Grid textAlign='center' style={{ height: '25vh' }} verticalAlign='middle'>
+    <Grid textAlign='center' verticalAlign='middle'>
     <Grid.Row>
 
       <Grid.Column style={{ maxWidth: 450 }}>
