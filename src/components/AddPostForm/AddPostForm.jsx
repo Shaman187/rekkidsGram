@@ -9,7 +9,7 @@ export default function AddPostForm(props){
     year: '',
     artist: '',
     label: '',
-    photo: '13'
+    photo: ''
   })
 
   function handleFileInput(e){
@@ -39,7 +39,7 @@ export default function AddPostForm(props){
     
     
     // Have to submit the form now! We need a function!
-    props.handleAddPost(formData)
+    props.handleAddPost(formData);
   }
 
 
@@ -77,11 +77,6 @@ export default function AddPostForm(props){
                   onChange={handleChange}
                   required
               />   
-              <Form.Input
-                      type='file'
-                      name='photo'
-                      placeholder='Upload Photo'
-                />
               <Form.Input                 
                   className="form-control"
                   name="title"
@@ -89,7 +84,13 @@ export default function AddPostForm(props){
                   placeholder="title"
                   onChange={handleChange}
                   required
-                  />  
+              />
+              <Form.Input
+                  type='file'
+                  name='photo'
+                  placeholder='Upload Photo'
+                  onChange={handleFileInput}
+              /> 
               <Button
                 color="purple"
                 inverted

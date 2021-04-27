@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import { Router, Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
@@ -23,8 +23,8 @@ function App() {
   }
 
   return (
-    <Router>
-      <Switch>
+    // <Router>
+       <Switch>
           <Route exact path="/login">
              <LoginPage handleSignUpOrLogin={handleSignUpOrLogin}/>
           </Route>
@@ -47,7 +47,7 @@ function App() {
           }
   
       </Switch>
-  </Router>
+    // </Router>
   );
 }
 

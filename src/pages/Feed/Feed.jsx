@@ -36,7 +36,6 @@ export default function Feed({user, handleLogout}){
 
 
     async function handleAddPost(post){
-        console.log('hanlde add Post')
         try {
             
             const data = await postsApi.create(post)

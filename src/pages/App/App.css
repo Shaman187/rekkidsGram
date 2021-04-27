@@ -4,6 +4,8 @@
 
 body {
   background-image: linear-gradient( black, purple); 
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .App-logo {
