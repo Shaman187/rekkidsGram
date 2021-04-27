@@ -18,16 +18,16 @@ function create(req, res){
 
     try {
         const filePath = `${uuidv4()}${req.file.originalname}`;
-        const params = { Bucket: BUCKET_NAME, Key: filePath, Body: req.file.buffer }
+        const params = { Bucket: process.env.BUCKET_NAME, Key: filePath, Body: req.file.buffer }
 
         s3.upload(params, async function(err, data) {
             // use our model to create a post
             // The data object is the response from aws, 
             // it's the callback function to upload
-            // console.log(Post)
+            console.log("DATA: ", data)
             const post = await Post.create({
                 title: req.body.title, 
-                // photoUrl: data.Location, 
+                photoUrl: data.Location, 
                 year: req.body.year,
                 label: req.body.label,
                 artist: req.body.artist,
