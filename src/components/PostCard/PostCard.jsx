@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Icon, Image } from 'semantic-ui-react'
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function PostCard({post, isProfile, addLike, removeLike, user }) { 
 
@@ -19,7 +19,7 @@ function PostCard({post, isProfile, addLike, removeLike, user }) {
 
 
   return (
-    <Card key={post._id}>
+    <Card color="green" key={post._id}>
      {isProfile ? ''
         :  
           <Card.Content textAlign='left'>
@@ -35,12 +35,16 @@ function PostCard({post, isProfile, addLike, removeLike, user }) {
       }
       <Image src={`${post.photoUrl}`} wrapped ui={false} />
       <Card.Content>
-      <Card.Description>
-        {post.label}
-        {post.artist}
-        {post.year}
-        {post.title}
-      </Card.Description>
+        Artist: {post.artist}
+      </Card.Content>
+      <Card.Content>
+        Year: {post.year}
+      </Card.Content>
+      <Card.Content>
+        Label: {post.label}
+      </Card.Content>
+      <Card.Content>
+        Title: {post.title}
       </Card.Content>
       <Card.Content extra textAlign={'right'}>
         <Icon name={'heart'} size='large' onClick={clickHandler} color={likeColor} />
