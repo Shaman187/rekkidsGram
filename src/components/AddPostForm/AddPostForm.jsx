@@ -49,7 +49,7 @@ export default function AddPostForm(props){
     <Grid.Row>
 
       <Grid.Column style={{ maxWidth: 450 }}>
-        <Segment clearing inverted>
+        <Segment clearing style={{backgroundColor: "black"}}>
         
             <Form  autoComplete="off" onSubmit={handleSubmit}>
             
@@ -92,7 +92,7 @@ export default function AddPostForm(props){
                   onChange={handleFileInput}
               /> 
               <Button
-                color="purple"
+                color="green"
                 inverted
                 type="submit"
                 className="btn"

@@ -2,7 +2,8 @@ import React from 'react';
 import {  Image, Grid, Segment } from 'semantic-ui-react';
 
 
-function ProfileBio({user}) { 
+
+function ProfileBio({ user }) { 
   return (
   <Grid textAlign='center' columns={2}>
     <Grid.Row>
@@ -11,10 +12,10 @@ function ProfileBio({user}) {
       </Grid.Column>
       <Grid.Column textAlign="left" style={{ maxWidth: 450 }}>
         <Segment vertical>
-           <h3>{user.username}</h3>
+           <h3 style={{color: "green"}}>{user.username}</h3>
         </Segment>
-        <Segment>
-           <span> Bio: {user.bio}</span>
+        <Segment style={{backgroundColor: "black"}}>
+           <span style={{ color: "green"}}> Bio: {user.bio}</span>
         </Segment>
           
       </Grid.Column>

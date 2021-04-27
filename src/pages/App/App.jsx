@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Router, Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
@@ -23,7 +23,7 @@ function App() {
   }
 
   return (
-    // <Router>
+    <Router>
        <Switch>
           <Route exact path="/login">
              <LoginPage handleSignUpOrLogin={handleSignUpOrLogin}/>
@@ -33,11 +33,11 @@ function App() {
           </Route>
           {userService.getUser() ? 
              
-             <Switch>
-             <Route exact path="/">
+            <Switch>
+                <Route exact path="/">
                     <Feed user={user} handleLogout={handleLogout}/>
                 </Route>
-                <Route path="/:username">
+                <Route exact path="/:username">
                   <ProfilePage user={user} handleLogout={handleLogout}/>
                 </Route>
             </Switch>
@@ -47,7 +47,7 @@ function App() {
           }
   
       </Switch>
-    // </Router>
+    </Router>
   );
 }
 

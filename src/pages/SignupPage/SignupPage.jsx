@@ -113,7 +113,7 @@ export default function SignUpPage(props){
                       onChange={handleChange}
                       required
                     />
-                    <Form.TextArea label='Bio' placeholder='Tell us more about your favourite rekkid...' name="Bio" color='purple' onChange={handleChange}/>
+                    <Form.TextArea label='Bio' placeholder='Tell us more about your favourite rekkid...' name="bio" color='purple' onChange={handleChange}/>
                     <Form.Field> 
                         <Form.Input
                           label="Profile Image"

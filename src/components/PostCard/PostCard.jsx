@@ -19,34 +19,34 @@ function PostCard({post, isProfile, addLike, removeLike, user }) {
 
 
   return (
-    <Card color="green" key={post._id}>
+    <Card key={post._id}>
      {isProfile ? ''
         :  
-          <Card.Content textAlign='left'>
+          <Card.Content textAlign='left' style={{backgroundColor: "black", color: "green"}}>
               <Image
                   floated='left'
                   size='large'
                   avatar
                   src={post.user.photoUrl ? post.user.photoUrl : 'https://react.semantic-ui.com/images/wireframe/square-image.png'}
               />
-              <Card.Header floated="right">{post.user.username}</Card.Header>
+              <Card.Header floated="right" style={{color: "green"}}>{post.user.username}</Card.Header>
           </Card.Content>
       
       }
-      <Image src={`${post.photoUrl}`} wrapped ui={false} />
-      <Card.Content>
+      <Image  src={`${post.photoUrl}`} wrapped ui={false} />
+      <Card.Content style={{backgroundColor: "black", color: "green"}}>
         Artist: {post.artist}
       </Card.Content>
-      <Card.Content>
+      <Card.Content style={{backgroundColor: "black", color: "green"}}>
         Year: {post.year}
       </Card.Content>
-      <Card.Content>
+      <Card.Content style={{backgroundColor: "black", color: "green"}}>
         Label: {post.label}
       </Card.Content>
-      <Card.Content>
+      <Card.Content style={{backgroundColor: "black", color: "green"}}>
         Title: {post.title}
       </Card.Content>
-      <Card.Content extra textAlign={'right'}>
+      <Card.Content extra textAlign={'right'} style={{backgroundColor: "black", color: "green"}}>
         <Icon name={'heart'} size='large' onClick={clickHandler} color={likeColor} />
         {post.likes.length} Likes
           
