@@ -60,14 +60,9 @@ export default function ProfilePage({ user, handleLogout }) {
         }
     }
 
-
-    
-
     useEffect(() => {
         getProfile()
-
-    }, [])
-
+    }, [location.pathname.substring(1)])
 
 
     return (

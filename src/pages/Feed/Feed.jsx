@@ -85,6 +85,7 @@ export default function Feed({user, handleLogout}){
               isProfile={false} 
               addLike={addLike} 
               removeLike={removeLike}
+              setPosts={setPosts}
               />
           </Grid.Column>
         </Grid.Row>
