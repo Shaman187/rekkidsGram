@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, Icon, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
+import * as postApi from '../../utils/post-api';
 
 function PostCard({post, isProfile, addLike, removeLike, user }) { 
 
@@ -17,6 +18,30 @@ function PostCard({post, isProfile, addLike, removeLike, user }) {
   // as the logged in the user when I click on the heart and it is red I want 
   // to remove the like and turn heart grey
 
+  const [posts, setPosts] = useState([])
+
+  async function deletePost(postID){
+    try{
+        const data = await postApi.deletePost(postID)
+        getPosts()
+    }catch(err){
+        console.log(err)
+    }
+}
+
+  async function getPosts(){
+    try{
+        const data = await postApi.getOne();
+        console.log(data)
+        setPosts([...data.posts])
+    }catch(err){
+        console.log(err, ' error')
+    }
+  }
+
+  useEffect(() => {
+    getPosts()
+  }, [])
 
   return (
     <Card key={post._id}>
@@ -50,6 +75,10 @@ function PostCard({post, isProfile, addLike, removeLike, user }) {
         <Icon name={'heart'} size='large' onClick={clickHandler} color={likeColor} />
         {post.likes.length} Likes
           
+      </Card.Content>
+      <Card.Content extra textAlign={'center'} style={{backgroundColor: "black"}}>
+        
+      <Icon name={'trash'} size='large' color={"red"} onClick={()=>deletePost(post._id)} />
       </Card.Content>
     </Card>
   );

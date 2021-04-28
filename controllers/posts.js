@@ -7,7 +7,8 @@ const BUCKET_NAME = process.env.DOGGOS_BUCKET
 
 module.exports = {
     create,
-    index
+    index,
+    deletePost
 }
 
 
@@ -64,5 +65,17 @@ async function index(req, res){
         res.status(200).json({posts})
     } catch(err){
         res.json(err)
+    }
+}
+
+async function deletePost(req, res){
+    try{
+        const post = Post.findOneAndDelete({'_id':req.params.id}, function(err){
+            if(err) console.log(err)
+        })
+        res.json({data: 'Rekkid removed'})
+    }catch(err){
+        console.log(err)
+        res.json({error: err})
     }
 }
