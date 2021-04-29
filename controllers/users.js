@@ -75,6 +75,12 @@ async function profile(req, res){
   }
 }
 
+function updateProfilePhoto(req, res){
+  // confirm we access to our multipart/formdata request
+  console.log(req.body, req.file, req.user, "<req.user is being assinged in the config/auth middleware");
+ res.json({data: 'working'})
+}
+
 /*----- Helper Functions -----*/
 
 function createJWT(user) {
@@ -83,10 +89,4 @@ function createJWT(user) {
     SECRET,
     {expiresIn: '24h'}
   );
-}
-
-function updateProfilePhoto(req, res){
-  // confirm we access to our multipart/formdata request
-  console.log(req.body, req.file, req.user, "<req.user is being assinged in the config/auth middleware");
- res.json({data: 'working'})
 }

@@ -7,13 +7,10 @@ export default function UpdateProfilePhotoForm(props){
   const [state, setState] = useState({
     photo: ''
   })
-
+console.log(props)
   function handleFileInput(e){
     setSelectedFile(e.target.files[0])
   }
-
-
-
 
   function handleSubmit(e){
     e.preventDefault()
@@ -27,7 +24,7 @@ export default function UpdateProfilePhotoForm(props){
     
     
     // Have to submit the form now! We need a function!
-    props.handleAddPost(formData);
+    props.handleUpdateProfilePhoto(formData);
   }
 
 

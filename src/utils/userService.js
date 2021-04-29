@@ -58,7 +58,7 @@ function getProfile(username){
 }
 
 function updateProfilePhoto(photo) {
-  return fetch(BASE_URL + 'updateProfilePhoto', {
+  return fetch(BASE_URL, {
     method: 'PUT',
     body: photo,
     headers: {

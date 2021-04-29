@@ -7,7 +7,7 @@ import PageHeader from '../../components/Header/Header';
 import * as likesApi from '../../utils/likesService';
 import { useLocation } from 'react-router-dom';
 import UpdateProfilePhotoForm from '../../components/UpdateProfilePhotoForm/UpdateProfilePhotoForm';
-
+console.log(userService)
 export default function ProfilePage({ user, handleLogout }) {
 
     const [posts, setPosts] = useState([])
@@ -39,8 +39,13 @@ export default function ProfilePage({ user, handleLogout }) {
         }
       }
 
-
-
+      async function handleUpdateProfilePhoto (photo){
+   
+        const data = await userService.updateProfilePhoto(photo);
+        
+        console.log(data)
+      }
+      
 
     async function getProfile() {
 
@@ -99,6 +104,7 @@ export default function ProfilePage({ user, handleLogout }) {
                     <Grid.Row>
                         <Grid.Column>
                             <UpdateProfilePhotoForm 
+                            handleUpdateProfilePhoto={handleUpdateProfilePhoto}
                              />
                         </Grid.Column>
                     </Grid.Row>
