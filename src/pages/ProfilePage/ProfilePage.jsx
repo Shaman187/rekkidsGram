@@ -5,10 +5,11 @@ import ProfileBio from '../../components/ProfileBio/ProfileBio';
 import PostFeed from '../../components/PostFeed/PostFeed';
 import PageHeader from '../../components/Header/Header';
 import * as likesApi from '../../utils/likesService';
+import * as postApi from '../../utils/post-api';
 import { useLocation } from 'react-router-dom';
 import UpdateProfilePhotoForm from '../../components/UpdateProfilePhotoForm/UpdateProfilePhotoForm';
-console.log(userService)
-export default function ProfilePage({ user, handleLogout }) {
+
+export default function ProfilePage({ user, handleLogout, handleSignUpOrLogin }) {
 
     const [posts, setPosts] = useState([])
     const [profileUser, setProfileUser] = useState({})
@@ -41,11 +42,20 @@ export default function ProfilePage({ user, handleLogout }) {
 
       async function handleUpdateProfilePhoto (photo){
    
-        const data = await userService.updateProfilePhoto(photo);
-        
-        console.log(data)
+        const updatedUser = await userService.updateProfilePhoto(photo);
+        handleSignUpOrLogin()
+        console.log(updatedUser)
       }
       
+        async function deletePost(postID){
+            try{
+                await postApi.deletePost(postID)
+                const newPosts = posts.filter(post => post._id !== postID)
+                setPosts(newPosts)
+            }catch(err){
+                console.log(err)
+        }
+    }
 
     async function getProfile() {
 
@@ -68,7 +78,7 @@ export default function ProfilePage({ user, handleLogout }) {
 
     useEffect(() => {
         getProfile()
-    }, [location.pathname.substring(1)])
+    }, [location.pathname.substring(1), user])
 
 
     return (
@@ -98,7 +108,7 @@ export default function ProfilePage({ user, handleLogout }) {
                     </Grid.Row>
                     <Grid.Row centered>
                         <Grid.Column style={{ maxWidth: 750 }}>
-                            <PostFeed isProfile={true} posts={posts} numPhotosCol={3} user={user} addLike={addLike} removeLike={removeLike}/>
+                            <PostFeed isProfile={true} posts={posts} numPhotosCol={3} user={user} addLike={addLike} removeLike={removeLike} deletePost={deletePost}/>
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row>

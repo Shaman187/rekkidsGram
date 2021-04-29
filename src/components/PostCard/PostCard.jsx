@@ -3,7 +3,7 @@ import { Card, Icon, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 import * as postApi from '../../utils/post-api';
 
-function PostCard({post, posts, isProfile, addLike, removeLike, user, setPosts }) { 
+function PostCard({post, posts, isProfile, addLike, removeLike, user, setPosts, deletePost }) { 
 
   // as the logged in the user when I add a like I want the heart to turn red
   // find out if the logged in user has liked the card
@@ -20,15 +20,15 @@ function PostCard({post, posts, isProfile, addLike, removeLike, user, setPosts }
 
   const [state, setState] = useState([])
 
-  async function deletePost(postID){
-    try{
-        await postApi.deletePost(postID)
-        const newPosts = posts.filter(post => post._id !== postID)
-        setPosts(newPosts)
-    }catch(err){
-        console.log(err)
-    }
-}
+//   async function deletePost(postID){
+//     try{
+//         await postApi.deletePost(postID)
+//         const newPosts = posts.filter(post => post._id !== postID)
+//         setPosts(newPosts)
+//     }catch(err){
+//         console.log(err)
+//     }
+// }
 
   return (
     <Card key={post._id}>
@@ -63,10 +63,12 @@ function PostCard({post, posts, isProfile, addLike, removeLike, user, setPosts }
         {post.likes.length} Likes
           
       </Card.Content>
+      { post.user === user._id ?
       <Card.Content extra textAlign={'center'} style={{backgroundColor: "black"}}>
-
-      <Icon name={'trash'} size='large' color={"red"} onClick={()=>deletePost(post._id)} />
+        <Icon name={'trash'} size='large' color={"red"} onClick={() => deletePost(post._id)}/>
       </Card.Content>
+       : ''
+      }
     </Card>
   );
 }

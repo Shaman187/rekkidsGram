@@ -20,8 +20,6 @@ console.log(props)
     // what type of request are we making?
     const formData = new FormData()
     formData.append('photo', selectedFile)
-
-    
     
     // Have to submit the form now! We need a function!
     props.handleUpdateProfilePhoto(formData);

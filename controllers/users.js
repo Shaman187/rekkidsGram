@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const Post = require('../models/post');
+
 const jwt = require('jsonwebtoken');
 const SECRET = process.env.SECRET;
 const { v4: uuidv4 } = require('uuid');
@@ -77,9 +78,29 @@ async function profile(req, res){
 
 function updateProfilePhoto(req, res){
   // confirm we access to our multipart/formdata request
-  console.log(req.body, req.file, req.user, "<req.user is being assinged in the config/auth middleware");
- res.json({data: 'working'})
+  const filePath = `${uuidv4()}${req.file.originalname}`
+  const params = {Bucket: process.env.BUCKET_NAME, Key: filePath, Body: req.file.buffer};
+
+  s3.upload(params, async function(err, data){
+    console.log(data, err, 'from aws'); // data.Location is our photoUrl that exists on aws
+    try {
+      const updatedUser = await User.findOneAndUpdate({_id: req.user._id}, 
+      {photoUrl: data.Location}, {new: true});
+      console.log(updatedUser);
+      const token = createJWT(updatedUser); // user is the payload so this is the object in our jwt
+      res.json({ token });
+    } catch (err) {
+      // Probably a duplicate email
+      console.log(err);
+      res.status(400).json(err);
+    }
+
+
+
+  })
 }
+  //////////////////////////////////////////////////////////////////////////////////
+ 
 
 /*----- Helper Functions -----*/
 
