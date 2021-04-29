@@ -6,6 +6,7 @@ import PostFeed from '../../components/PostFeed/PostFeed';
 import PageHeader from '../../components/Header/Header';
 import * as likesApi from '../../utils/likesService';
 import { useLocation } from 'react-router-dom';
+import UpdateProfilePhotoForm from '../../components/UpdateProfilePhotoForm/UpdateProfilePhotoForm';
 
 export default function ProfilePage({ user, handleLogout }) {
 
@@ -93,6 +94,12 @@ export default function ProfilePage({ user, handleLogout }) {
                     <Grid.Row centered>
                         <Grid.Column style={{ maxWidth: 750 }}>
                             <PostFeed isProfile={true} posts={posts} numPhotosCol={3} user={user} addLike={addLike} removeLike={removeLike}/>
+                        </Grid.Column>
+                    </Grid.Row>
+                    <Grid.Row>
+                        <Grid.Column>
+                            <UpdateProfilePhotoForm 
+                             />
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>

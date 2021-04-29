@@ -10,7 +10,8 @@ const s3 = new S3(); // initialize the construcotr
 module.exports = {
   signup,
   login,
-  profile
+  profile,
+  updateProfilePhoto
 };
 
 function signup(req, res) {
@@ -82,4 +83,10 @@ function createJWT(user) {
     SECRET,
     {expiresIn: '24h'}
   );
+}
+
+function updateProfilePhoto(req, res){
+  // confirm we access to our multipart/formdata request
+  console.log(req.body, req.file, req.user, "<req.user is being assinged in the config/auth middleware");
+ res.json({data: 'working'})
 }

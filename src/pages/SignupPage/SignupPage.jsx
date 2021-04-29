@@ -93,7 +93,7 @@ export default function SignUpPage(props){
                       type="email"                  
                       name="email"
                       placeholder="email"
-                      value={ state.email}
+                      value={state.email}
                       onChange={handleChange}
                       required
                     />
@@ -101,7 +101,7 @@ export default function SignUpPage(props){
                       name="password"
                       type="password"
                       placeholder="password"
-                      value={ state.password}
+                      value={state.password}
                       onChange={handleChange}
                       required
                     />
@@ -109,7 +109,7 @@ export default function SignUpPage(props){
                       name="passwordConf"
                       type="password"
                       placeholder="Confirm Password"
-                      value={ state.passwordConf}
+                      value={state.passwordConf}
                       onChange={handleChange}
                       required
                     />
