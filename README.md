@@ -20,7 +20,7 @@ Simple UI for easy navigation provides a more user friendly experience.
 - Semantic UI
 
 ### Getting Started
-- [Start Collecting!]()
+- [Start Collecting!](https://rekkidsgram.herokuapp.com/)
 - [Trello Board](https://trello.com/b/xoIsMbxu/rekkids-mern)
 
 ### Additions I'd Like to Make
