@@ -25,12 +25,12 @@ function PostCard({post, posts, isProfile, addLike, removeLike, user, setPosts, 
      {isProfile ? ''
         :  
           <Card.Content textAlign='left' style={{backgroundColor: "black", color: "green"}}>
-              <Image
+              <Link style={{color: 'green'}} to={`/${post.user.username}`}><Image
                   floated='left'
                   size='large'
                   avatar
                   src={post.user.photoUrl ? post.user.photoUrl : 'https://react.semantic-ui.com/images/wireframe/square-image.png'}
-              />
+              /></Link>
               <Card.Header floated="right" style={{color: "green"}}>{post.user.username}</Card.Header>
           </Card.Content>
       
