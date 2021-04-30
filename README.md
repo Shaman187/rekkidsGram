@@ -5,7 +5,7 @@ Simple UI for easy navigation provides a more user friendly experience.
 
 
 ![Main Page](public/Screenshot1.png)
-< br>
+< /br>
 ![Profile Page](public/Screenshot2.png) 
 
 ### Technologies Used
