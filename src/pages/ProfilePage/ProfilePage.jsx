@@ -103,19 +103,19 @@ export default function ProfilePage({ user, handleLogout, handleSignUpOrLogin })
                     </Grid.Row>
                     <Grid.Row>
                         <Grid.Column>
+                            <UpdateProfilePhotoForm 
+                            handleUpdateProfilePhoto={handleUpdateProfilePhoto}
+                             />
+                        </Grid.Column>
+                    </Grid.Row>
+                    <Grid.Row>
+                        <Grid.Column>
                             <ProfileBio user={profileUser} />
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row centered>
                         <Grid.Column style={{ maxWidth: 750 }}>
                             <PostFeed isProfile={true} posts={posts} numPhotosCol={3} user={user} addLike={addLike} removeLike={removeLike} deletePost={deletePost}/>
-                        </Grid.Column>
-                    </Grid.Row>
-                    <Grid.Row>
-                        <Grid.Column>
-                            <UpdateProfilePhotoForm 
-                            handleUpdateProfilePhoto={handleUpdateProfilePhoto}
-                             />
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>

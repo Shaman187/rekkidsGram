@@ -20,16 +20,6 @@ function PostCard({post, posts, isProfile, addLike, removeLike, user, setPosts, 
 
   const [state, setState] = useState([])
 
-//   async function deletePost(postID){
-//     try{
-//         await postApi.deletePost(postID)
-//         const newPosts = posts.filter(post => post._id !== postID)
-//         setPosts(newPosts)
-//     }catch(err){
-//         console.log(err)
-//     }
-// }
-
   return (
     <Card key={post._id}>
      {isProfile ? ''

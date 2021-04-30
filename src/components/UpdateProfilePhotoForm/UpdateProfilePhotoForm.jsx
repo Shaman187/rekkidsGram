@@ -7,14 +7,14 @@ export default function UpdateProfilePhotoForm(props){
   const [state, setState] = useState({
     photo: ''
   })
-console.log(props)
+
   function handleFileInput(e){
     setSelectedFile(e.target.files[0])
   }
 
   function handleSubmit(e){
     e.preventDefault()
-    console.log('is handlesUbmit being called?')
+    console.log('is handleSubmit being called?')
 
     // Why do we need to create FormData
     // what type of request are we making?
@@ -28,11 +28,11 @@ console.log(props)
 
   return (
     
-    <Grid textAlign='center' verticalAlign='middle'>
+    <Grid textAlign='left' verticalAlign='middle'>
     <Grid.Row>
 
-      <Grid.Column style={{ maxWidth: 450 }}>
-        <Segment clearing style={{backgroundColor: "black"}}>
+      <Grid.Column style={{ maxWidth: 200 }}>
+        <Segment clearing style={{backgroundColor: "transparent"}}>
         
             <Form  autoComplete="off" onSubmit={handleSubmit}>
             
