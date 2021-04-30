@@ -4,7 +4,7 @@ Social media aspects allow for a deeper look into the minds of collectors.
 Simple UI for easy navigation provides a more user friendly experience.
 
 
-![alt text](https://imgur.com/a/qllBEd0)
+![alt text](https://imgur.com/IY8mpMW)
 ![alt text]() 
 
 ### Technologies Used

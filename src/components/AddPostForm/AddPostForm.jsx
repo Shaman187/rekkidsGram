@@ -4,13 +4,14 @@ import { Button, Form, Grid, Segment } from 'semantic-ui-react'
 
 export default function AddPostForm(props){
   const [selectedFile, setSelectedFile] = useState('')
-  const [state, setState] = useState({
+  const initialState = {
     title: '',
     year: '',
-    artist: '',
     label: '',
+    artist: '',
     photo: ''
-  })
+  }
+  const [state, setState] = useState(initialState)
 
   function handleFileInput(e){
     setSelectedFile(e.target.files[0])
@@ -40,6 +41,7 @@ export default function AddPostForm(props){
     
     // Have to submit the form now! We need a function!
     props.handleAddPost(formData);
+    setState(initialState)
   }
 
 
