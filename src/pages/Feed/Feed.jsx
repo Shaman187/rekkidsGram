@@ -4,7 +4,6 @@ import AddPostForm from '../../components/AddPostForm/AddPostForm';
 import PostFeed from '../../components/PostFeed/PostFeed';
 import * as postsApi from '../../utils/post-api';
 import * as likesApi from '../../utils/likesService';
-
 import {  Grid } from 'semantic-ui-react';
 
 export default function Feed({user, handleLogout}){
@@ -41,7 +40,7 @@ export default function Feed({user, handleLogout}){
             const data = await postsApi.create(post)
             console.log(data, ' the response from the create route')
 
-            setPosts(posts => [data.post, ...posts])
+            setPosts(posts => [...posts, data.post])
 
         } catch(err){
             console.log(err)
